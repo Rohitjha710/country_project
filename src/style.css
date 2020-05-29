@@ -1,0 +1,35 @@
+
+@import url('https://fonts.google.com/specimen/Nunito+Sans');
+body{
+    margin: 0!important;
+}
+#root{
+    font-family: Nunito Sans;
+}
+.container{
+    margin-left:5.3%;
+    margin-right: 5.3%;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(0, 0%, 99.5%);
+}
+.heading-message{
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+.heading-theme{
+
+    font-weight: 300;
+    font-size: 0.8rem;
+    padding-top: 0.8rem;
+}
+.search-filter{
+    background-color: hsl(0, 0%, 98%);
+    height: 100px;
+}
+.search-filter-container{
+    display: flex;
+    justify-content: space-between;
+}
