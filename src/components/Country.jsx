@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 class Country extends Component {
-    render() { 
+    render() {
+        const {country} = this.props; 
         return (<div className="country-homepage">
-            <img src="https://restcountries.eu/data/afg.svg" className="country-image-homepage" alt="Country-Flag"/>
-            <p className="country-name-homepage">India</p>
-            <p className="country-details-homepage">Population:1233333</p>
-            <p className="country-details-homepage">Region:Asia</p>
-            <p className="country-details-homepage">Capital:New Delhi</p>
+            <img src={country.flag} className="country-image-homepage" alt="Country-Flag"/>
+    <p className="country-name-homepage">{country.name}</p>
+    <p className="country-details-homepage">Population:{country.population}</p>
+            <p className="country-details-homepage">Region:{country.region}</p>
+            <p className="country-details-homepage">Capital:{country.capital}</p>
         </div>);
     }
 }

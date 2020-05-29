@@ -45,13 +45,16 @@ body{
 
 }
 .country-homepage{
-    width: 18.3%;
+    width: 20.7%;
+    background-color:hsl(0, 0%, 100%);
+    margin-bottom: 100px;
 
 }
 .countries-container{
     display: flex;
     justify-content: space-between;
-    ;
+flex-wrap: wrap;
+align-content: space-between;
 }
 .country-image-homepage{
     width: 100%;

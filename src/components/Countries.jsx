@@ -5,14 +5,9 @@ class Countries extends Component {
     return (
         <div className="countries">
       <div className="container countries-container">
-        <Country />
-        <Country />
-        <Country />
-        <Country />
-        <Country />
-        <Country />
-        <Country />
-        <Country />
+        {this.props.countries.map(country=>(
+        <Country country={country}/>            
+        ))}
       </div></div>
     );
   }
