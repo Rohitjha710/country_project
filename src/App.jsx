@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import HomePage from './components/Homepage'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomePage from './components/Homepage';
+import CountryDetails from './components/CountryDetails';
 import './style.css';
 class App extends Component {
     state = {  }
     render() { 
-        return (<HomePage/> );
+        return (
+        <Router>
+            <Route exact path="/">
+
+            <HomePage/>
+            </Route>
+            <Route exact path="/:countryName">
+<CountryDetails/>
+
+            </Route>
+        </Router>
+         
+        );
     }
 }
  

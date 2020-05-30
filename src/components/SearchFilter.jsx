@@ -4,12 +4,23 @@ class SearchFilter extends Component {
     return (
       <div className="search-filter">
         <div className="container search-filter-container">
-          <textarea className="search-box" placeholder="Search For a Country.."/>
-          <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+          <div className="search-box">
+            {" "}
+            <i className="fa fa-search"></i>
+            <input
+              className="search-input"
+              placeholder="Search For a Country.."
+              onChange={this.props.inputQuery}
+            />
+          </div>
+
+          <select className="region-options" onChange={this.props.onRegionSelect}>
+            <option value="" selected>Filter By Region</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">Americas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
           </select>
         </div>{" "}
       </div>
