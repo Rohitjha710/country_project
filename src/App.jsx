@@ -12,8 +12,8 @@ class App extends Component {
 
             <HomePage/>
             </Route>
-            <Route exact path="/:countryName">
-<CountryDetails/>
+            <Route exact path="/:countryName" component={CountryDetails}>
+
 
             </Route>
         </Router>

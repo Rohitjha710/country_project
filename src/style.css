@@ -1,6 +1,6 @@
 @import url("https://fonts.google.com/specimen/Nunito+Sans");
 body {
-  margin: 0 !important;
+  margin: 0 !important; 
 }
 #root {
   font-family: Nunito Sans;
@@ -40,11 +40,15 @@ body {
 .country-details-homepage {
   font-weight: 300;
 }
+.anchorTag, .back {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
 .country-homepage {
   width: 20.7%;
   background-color: hsl(0, 0%, 100%);
   margin-bottom: 100px;
-  box-shadow: 4px 4px  hsl(0, 0%, 95%);
+  box-shadow: 4px 4px hsl(0, 0%, 95%);
 }
 .country-homepage p {
   margin-left: 1.5rem;
@@ -66,20 +70,19 @@ body {
 .country-name-homepage {
   font-size: 1rem;
 }
-.search-box{
-
-    min-width:28%;
-    padding: 12px 20px;
-    margin: 25px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: hsl(0,0%,100%);
-    box-shadow: 2px 2px  hsl(0, 0%, 95%);
+.search-box {
+  min-width: 28%;
+  padding: 12px 20px;
+  margin: 25px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px hsl(0, 0%, 95%);
 }
-.search-input{
-    border-top-style: hidden;
+.search-input {
+  border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
@@ -87,18 +90,71 @@ body {
   background-color: inherit;
   font-size: 1rem;
 }
-.region-options{
-
-    width:13%;
-    padding: 12px 20px;
-    margin: 25px 0;
+.region-options {
+  width: 13%;
+  padding: 12px 20px;
+  margin: 25px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px hsl(0, 0%, 95%);
+}
+input:focus {
+  outline: none;
+}
+.country-details-main-section {
+  background-color: hsl(0, 0%, 98%);
+  padding-top: 3rem;
+}
+.back-button {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: hsl(0,0%,100%);
-    box-shadow: 2px 2px  hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 2px 2px hsl(0, 0%, 95%);
+    width: fit-content;
+    padding: 10px 18px 10px 10px;
 }
-input:focus{
-    outline: none;
+.back-icon {
+    margin-right: 5px;
 }
+.flag-and-details{
+   margin-top: 3rem; 
+display: flex;
+justify-content: space-between;
+}
+.countryFlag-detailsPage{
+width: 45%;
+}
+.country-name-details{
+width: 45%;
+}
+.countryDetails-countryName{
+    height: 44px;
+    padding-top: 2rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+
+}
+.country-detailsPage-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: wrap;
+    height: 224px;
+    align-content: space-between;
+    font-size: 1rem;
+}
+.country-detailsPage-details p{
+    
+}
+.Border-Countries{
+
+}
+.languages { list-style: none; margin: 0; padding: 0; }
+.languages li { display: inline; }
+.languages li:after { content: ", "; }
+.languages li:last-child:after { content: ""; }
