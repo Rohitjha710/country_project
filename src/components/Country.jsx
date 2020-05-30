@@ -7,7 +7,7 @@ class Country extends Component {
       <div className="country-homepage">
         <Link
           className="anchorTag"
-          to={{ pathname: `/${country.name}`, state: { countryData: country }}}
+          to={{ pathname: `/${country.alpha3Code}`, state: { countryData: country }}}
         >
           <img
             src={country.flag}
