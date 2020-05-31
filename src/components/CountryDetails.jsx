@@ -19,7 +19,6 @@ class CountryDetails extends Component {
     // }
   }
   render() {
-      console.log(this.state.country)
     return (
       <React.Fragment>
         <Heading />

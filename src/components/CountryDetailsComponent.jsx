@@ -24,21 +24,21 @@ class Country extends Component {
           <div className="country-name-details">
             <p className="countryDetails-countryName">{this.props.country.name}</p>
             <div className="country-detailsPage-details">
-              <p>Native Name :{this.props.country.nativeName}</p>
-              <p>Population:{this.props.country.population}</p>
-              <p>Region:{this.props.country.region}</p>
-              <p>Sub Region:{this.props.country.subregion}</p>
-              <p> Capital:{this.props.country.capital}</p>
-              <p>Top Level Domain:{this.props.country.topLevelDomain[0]}</p>
-              <p>Currencies:{this.props.country.currencies[0].name}</p>
-              <p>
+              <div className="country-detailsPage-detailsTitle">Native Name :<p style={{display:'inline'}}>{this.props.country.nativeName}</p></div>
+              <div className="country-detailsPage-detailsTitle">Population:<p style={{display:'inline'}}>{this.props.country.population}</p></div>
+              <div className="country-detailsPage-detailsTitle">Region:<p style={{display:'inline'}}>{this.props.country.region}</p></div>
+              <div className="country-detailsPage-detailsTitle">Sub Region:<p style={{display:'inline'}}>{this.props.country.subregion}</p></div>
+              <div className="country-detailsPage-detailsTitle"> Capital:<p style={{display:'inline'}}>{this.props.country.capital}</p></div>
+              <div className="country-detailsPage-detailsTitle">Top Level Domain:<p style={{display:'inline'}}>{this.props.country.topLevelDomain[0]}</p></div>
+              <div className="country-detailsPage-detailsTitle">Currencies:<p style={{display:'inline'}}>{this.props.country.currencies[0].name}</p></div>
+              <div className="country-detailsPage-Languages"><div className="country-detailsPage-detailsTitle">
                 Languages:
-                <ul className="languages">
+                </div>  <ul className="languages">
                   {this.props.country.languages.map(language => (
                     <li key={language.name}>{language.name}</li>
                   ))}
                 </ul>
-              </p>
+                </div>
             </div>
             <div className="border-countries-section">
               <p>Border Countries</p>
