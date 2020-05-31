@@ -247,4 +247,41 @@ input:focus {
         margin-left: 8%;
         margin-right: 8%;
     }
+    .flag-and-details{
+        flex-direction: column;
+    }
+    .countryFlag-detailsPage{
+        width: 100%;
+    }
+    .country-name-details{
+        width: 100%;
+    }
+    .country-detailsPage-details{
+        height: fit-content;
+    }
+     .capital{
+        margin-top: 40px;
+    }
+    .languages{
+        display: flex;
+   
+    }
+    .languages li:after{
+          content: ", ";
+          
+    }
+    .languages li:last-child:after{
+        content: "";
+    }
+    .border-country{
+        padding: 7px 13px 9px 10px;
+    height: 32px;
+    font-size: 12px;
+    }
+    .border-countries{
+        padding-top: 14px;
+    }
+    .border-countries-section{
+        margin-bottom: 12px;
+    }
 }
