@@ -15,11 +15,11 @@ class Country extends Component {
             alt="Country-Flag"
           />
           <p className="country-name-homepage">{country.name}</p>
-          <p className="country-details-homepage">
-            Population:{country.population}
-          </p>
-          <p className="country-details-homepage">Region:{country.region}</p>
-          <p className="country-details-homepage">Capital:{country.capital}</p>
+          <div className="country-details-homepage">
+            Population:<p style={{display:'inline'}}>{country.population}</p>
+          </div>
+          <div className="country-details-homepage">Region: <p style={{display:'inline'}}>  {country.region}</p></div>
+          <div className="country-details-homepage">Capital: <p style={{display:'inline'}}>{country.capital}</p></div>
         </Link>
       </div>
     );
