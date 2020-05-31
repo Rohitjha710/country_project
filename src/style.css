@@ -54,36 +54,37 @@ body {
   box-shadow: 4px 4px hsl(0, 0%, 95%);
   border-radius: 12px;
 }
-.country-homepage .country-name-homepage,.country-homepage .country-details-homepage {
+.country-homepage .country-name-homepage,
+.country-homepage .country-details-homepage {
   margin-left: 1.5rem;
   word-wrap: break-word;
 }
-.border-countries-section{
-    display: flex;
+.border-countries-section {
+  display: flex;
 }
-.border-countries-section p{
-    width: 30%;
+.border-countries-section p {
+  width: 30%;
 }
-.country-detailsPage-detailsTitle{
-    margin-bottom: 9px;
+.country-detailsPage-detailsTitle {
+  margin-bottom: 9px;
 }
-.country-detailsPage-detailsTitle p,.country-detailsPage-detailsTitle li{
-    color: hsl(0, 0%, 30%);
-    margin-left: 4px;
+.country-detailsPage-detailsTitle p,
+.country-detailsPage-detailsTitle li {
+  color: hsl(0, 0%, 30%);
+  margin-left: 4px;
 }
 .country-details-homepage {
-    font-size: 0.8rem;
-    font-weight: 300;
-    margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 4px;
 
-    color: hsl(200, 15%, 8%);
+  color: hsl(200, 15%, 8%);
 }
-  .country-details-homepage p{
-      margin-left: 2px;
+.country-details-homepage p {
+  margin-left: 2px;
 
-    color: hsl(0, 0%, 40%);
-  }
-
+  color: hsl(0, 0%, 40%);
+}
 
 .countries-container {
   display: flex;
@@ -141,16 +142,16 @@ input:focus {
   border-top: 4px outset hsl(0, 0%, 96%);
 }
 .back-button {
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: hsl(0, 0%, 100%);
-    box-shadow: 2px 2px hsl(0, 0%, 95%);
-   
-    width: fit-content;
-    padding: 11px 30px 10px 21px;
-    font-size: 14px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px hsl(0, 0%, 95%);
+
+  width: fit-content;
+  padding: 11px 30px 10px 21px;
+  font-size: 14px;
 }
 .back-icon {
   margin-right: 5px;
@@ -173,22 +174,22 @@ input:focus {
   font-weight: 800;
 }
 .country-detailsPage-details {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 172px;
-    align-content: space-between;
-    font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 172px;
+  align-content: space-between;
+  font-size: 0.9rem;
 }
 .country-detailsPage-details p {
-    margin-top: 0px;
-    margin-bottom: 9px;
-    }
+  margin-top: 0px;
+  margin-bottom: 9px;
+}
 .border-countries {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 70%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 70%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -208,35 +209,40 @@ input:focus {
   margin: 0;
   padding: 0;
 }
-/* .languages li {
-  display: inline;
-}
-.languages li:after {
-  content: ", ";
-}
-.languages li:last-child:after {
-  content: "";
-} */
 
 .border-country {
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: hsl(0, 0%, 100%);
-    box-shadow: 2px 2px hsl(0, 0%, 95%);
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 10px 18px 18px 10px;
-    height: 41px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 2px 2px hsl(0, 0%, 95%);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 18px 18px 10px;
+  height: 41px;
 }
-.country-detailsPage-Languages{
-    display: flex;
-
+.country-detailsPage-Languages {
+  display: flex;
 }
-.country-detailsPage-Languages .languages{
-    /* width: 65%; */
-    padding-left: 5px;
-    color: hsl(0, 0%, 30%);
-    word-wrap: break-word;
+.country-detailsPage-Languages .languages {
+  /* width: 65%; */
+  padding-left: 5px;
+  color: hsl(0, 0%, 30%);
+  word-wrap: break-word;
+}
+@media only screen and (max-width: 480px) {
+    .search-filter-container{
+       flex-direction: column; 
+    }
+    .search-filter{
+        height: 219px;
+    }
+    .region-options{
+        width: 53%;
+    }
+    .country-homepage {
+        width: 100%;
+        margin-bottom: 50px;
+    }
 }
