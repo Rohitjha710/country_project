@@ -3,6 +3,7 @@ class Heading extends Component {
   state = {};
   render() {
     return (
+      <div className="container-heading">
         <div className="container heading">
           <p className="heading-message">Where in the world?</p>
 
@@ -11,6 +12,7 @@ class Heading extends Component {
             <i className="fa fa-moon-o" style={{ fontSize: 14 }}></i> Dark Mode
           </p>
         </div>
+      </div>
     );
   }
 }
