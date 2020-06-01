@@ -7,7 +7,7 @@ class Heading extends Component {
         <div className="container heading">
           <p className="heading-message">Where in the world?</p>
 
-          <p className="heading-theme">
+          <p className="heading-theme" onClick={this.props.changeTheme}>
             {" "}
             <i className="fa fa-moon-o" style={{ fontSize: 14 }}></i> Dark Mode
           </p>

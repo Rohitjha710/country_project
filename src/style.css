@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
-
+.heading-theme{
+  cursor: pointer;
+}
 body {
   margin: 0 !important;
   font-family: "Nunito Sans";

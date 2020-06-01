@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Heading from "./Heading";
 import CountryDetailsComponent from "./CountryDetailsComponent";
 class CountryDetails extends Component {
   state = {
@@ -21,7 +20,6 @@ class CountryDetails extends Component {
   render() {
     return (
       <React.Fragment>
-        <Heading />
         { this.state.country && <CountryDetailsComponent country={this.state.country}/>}
       </React.Fragment>
     );
