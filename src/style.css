@@ -4,6 +4,12 @@ body {
   margin: 0 !important;
   font-family: "Nunito Sans";
 }
+.container-heading{
+  background-color: hsl(0, 0%, 99.5%);
+}
+html{
+  background-color: hsl(0, 0%, 98%);
+}
 .container {
   margin-left: 5.3%;
   margin-right: 5.3%;

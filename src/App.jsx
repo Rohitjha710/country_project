@@ -10,7 +10,7 @@ class App extends Component {
     render() { 
         return (
         <Router>
-            <ThemeProvider theme={{mode:'dark'}}>
+            <ThemeProvider theme={{mode:'light'}}>
             <GlobalStyle/>
             <Route exact path="/">
             
