@@ -49,5 +49,23 @@ input,select{
     border-top: ${props=>props.theme.mode==='light'?'':'4px outset hsl(207, 26%, 18%)'};
 
 }
+.back-button,.border-country{
+    background-color:${props=>props.theme.mode==='light'?'':'hsl(209, 23%, 22%)'};
+    box-shadow:${props=>props.theme.mode==='light'?'':'none'};
+    border: ${props=>props.theme.mode==='light'?'':'1px solid hsl(209, 23%, 22%)'};
+    color:${props=>props.theme.mode==='light'?'':'hsl(0,0%,70%)'};
+}
+.country-name-details{
+    color:${props=>props.theme.mode==='light'?'':'hsl(0,0%,100%)'};
+}
+.country-detailsPage-detailsTitle p,.country-detailsPage-Languages .languages{
+    color:${props=>props.theme.mode==='light'?'':'hsl(0, 0%, 70%)'};
+    
+}
+.border-country{
+    border: ${props=>props.theme.mode==='light'?'':'1px solid hsl(209, 23%, 30%)'};
+    
+}
+
 `;
 export default GlobalStyle;
