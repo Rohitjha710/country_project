@@ -1,28 +1,94 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-  Box
-} from "@chakra-ui/core";
+import { Box, Image, Text } from "@chakra-ui/core";
 class Country extends Component {
   render() {
     const { country } = this.props;
     return (
-      <Box className="country-homepage"  w={["100%","45%","30%","20.7%",]} bg="hsl(0,0%,100%)" shadow="4px 4px hsl(0, 0%, 95%)" mb="100px" rounded="12px">
+      <Box
+        w={["100%", "45%", "30%", "20.7%"]}
+        bg="hsl(0,0%,100%)"
+        shadow="4px 4px hsl(0, 0%, 95%)"
+        mb="100px"
+        rounded="12px"
+        pb="1rem"
+      >
         <Link
           className="anchorTag"
-          to={{ pathname: `/${country.alpha3Code}`, state: { countryData: country }}}
+          to={{
+            pathname: `/${country.alpha3Code}`,
+            state: { countryData: country }
+          }}
         >
-          <img
+          <Image
+            w="100%"
+            h="50%"
+            objectFit="cover"
             src={country.flag}
-            className="country-image-homepage"
             alt="Country-Flag"
+            borderTopLeftRadius="12px"
+            borderTopRightRadius="12px"
           />
-          <p className="country-name-homepage">{country.name}</p>
-          <div className="country-details-homepage">
-            Population:<p style={{display:'inline'}}>{country.population}</p>
-          </div>
-          <div className="country-details-homepage">Region: <p style={{display:'inline'}}>  {country.region}</p></div>
-          <div className="country-details-homepage">Capital: <p style={{display:'inline'}}>{country.capital}</p></div>
+          <Text
+            fontWeight="600"
+            ml="1.5rem"
+            wordBreak="break-word"
+            fontSize="1rem"
+          >
+            {country.name}
+          </Text>
+          <Box
+            color="hsl(200, 15%, 8%)"
+            mb="4px"
+            fontSize="0.8rem"
+            fontWeight="300"
+            ml="1.5rem"
+            wordBreak="break-word"
+          >
+            Population:
+            <Text
+              color="hsl(0, 0%, 40%)"
+              ml="2px"
+              style={{ display: "inline" }}
+            >
+              {country.population}
+            </Text>
+          </Box>
+          <Box
+            color="hsl(200, 15%, 8%)"
+            mb="4px"
+            fontSize="0.8rem"
+            fontWeight="300"
+            ml="1.5rem"
+            wordBreak="break-word"
+          >
+            Region:{" "}
+            <Text
+              color="hsl(0, 0%, 40%)"
+              ml="2px"
+              style={{ display: "inline" }}
+            >
+              {" "}
+              {country.region}
+            </Text>
+          </Box>
+          <Box
+            color="hsl(200, 15%, 8%)"
+            mb="4px"
+            fontSize="0.8rem"
+            fontWeight="300"
+            ml="1.5rem"
+            wordBreak="break-word"
+          >
+            Capital:{" "}
+            <Text
+              color="hsl(0, 0%, 40%)"
+              ml="2px"
+              style={{ display: "inline" }}
+            >
+              {country.capital}
+            </Text>
+          </Box>
         </Link>
       </Box>
     );

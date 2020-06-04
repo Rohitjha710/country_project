@@ -34,9 +34,9 @@ html {
 /* .countries {
   background-color: hsl(0, 0%, 98%);
 } */
-.country-name-homepage {
+/* .country-name-homepage {
   font-weight: 600;
-}
+} */
 .anchorTag,
 .back {
   color: inherit; 
@@ -72,7 +72,7 @@ html {
   color: hsl(0, 0%, 30%);
   margin-left: 4px;
 }
-.country-details-homepage {
+/* .country-details-homepage {
   font-size: 0.8rem;
   font-weight: 300;
   margin-bottom: 4px;
@@ -83,7 +83,7 @@ html {
   margin-left: 2px;
 
   color: hsl(0, 0%, 40%);
-}
+} */
 
 .countries-container {
   display: flex;
@@ -97,9 +97,9 @@ html {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-.country-name-homepage {
+/* .country-name-homepage {
   font-size: 1rem;
-}
+} */
 /* .search-box {
   min-width: 28%;
   padding: 12px 20px;
