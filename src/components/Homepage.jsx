@@ -1,12 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPost } from "../actions/postActions";
+
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
 class Homepage extends Component {
   state = { countries: [], searchQuery: "" };
   componentDidMount() {
-    if (this.state.searchQuery === "") {
-      this.displayAllCountries();
-    }
+    // if (this.state.searchQuery === "") {
+    //   this.displayAllCountries();
+    // }
+    this.props.fetchPost();
   }
   displayAllCountries = () => {
     fetch("https://restcountries.eu/rest/v2/all")
@@ -48,10 +52,15 @@ class Homepage extends Component {
           inputQuery={this.inputQuery}
           onRegionSelect={this.onRegionSelect}
         />
-        <Countries countries={this.state.countries} />
+        <Countries countries={this.props.posts} />
       </React.Fragment>
     );
   }
 }
+const mapStateToProps = state => ({
+  posts: state.posts.items,
+  newPost: state.posts.item
+});
+export default connect(mapStateToProps, { fetchPost })(Homepage);
 
-export default Homepage;
+
