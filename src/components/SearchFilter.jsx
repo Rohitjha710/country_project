@@ -3,7 +3,6 @@ import {
   Input,
   Select,
   Flex,
-  Box,
   InputGroup,
   InputLeftElement
 } from "@chakra-ui/core";
