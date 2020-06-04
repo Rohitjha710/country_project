@@ -3,6 +3,7 @@ import {
   Input,
   Select,
   Flex,
+  Box,
   InputGroup,
   InputLeftElement
 } from "@chakra-ui/core";
@@ -16,6 +17,7 @@ class SearchFilter extends Component {
         px="5.3%"
         // h="100px"
         borderTop="4px outset hsl(0, 0%, 96%)"
+        direction={["column","row"]}
       >
         {/* <Box
           
@@ -39,21 +41,21 @@ class SearchFilter extends Component {
             onChange={this.props.inputQuery}
           />
         </InputGroup>
-        {/* </Box> */}
         <Select
           variant="filled"
           minW="13%"
+          w={["50%","fit-content"]}
           rounded="4px"
           boxShadow="2px 2px hsl(0, 0%, 95%)"
-          w="fit-content"
           border="1px solid #ccc"
           borderColor="#ccc"
           bg="hsl(0,0%,100%)"
           my="22px"
-          pr="0px"
+          pr="1.5rem"
+          fontSize={["0.9rem","1rem"]}
           onChange={this.props.onRegionSelect}
         >
-          <option value="" defaultValue>
+          <option  value="" defaultValue>
             Filter By Region
           </option>
           <option value="Africa">Africa</option>
