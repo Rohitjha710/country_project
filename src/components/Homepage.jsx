@@ -36,7 +36,10 @@ class Homepage extends Component {
     if (region !== "" && region !== undefined) {
       this.props.updateRegion(region);
       this.props.fetchCountriesByRegion(region, this.props.queryProps);
-    } else if (this.props.queryProps !== "" && this.props.queryProps !== undefined) {
+    } else if (
+      this.props.queryProps !== "" &&
+      this.props.queryProps !== undefined
+    ) {
       this.props.updateRegion("");
       this.props.fetchCountriesByQuery(this.props.queryProps);
     } else {

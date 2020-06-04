@@ -16,9 +16,14 @@ export default function(state = initialState, action) {
       };
     case FETCH_COUNTRIES_BY_QUERY:
       if (action.regionIsSet) {
-      return{
-        ...state,countryList:action.payload.filter(country=>country.name.toLowerCase().includes(action.searchQuery.toLowerCase()))
-      }
+        return {
+          ...state,
+          countryList: action.payload.filter(country =>
+            country.name
+              .toLowerCase()
+              .includes(action.searchQuery.toLowerCase())
+          )
+        };
       } else {
         return {
           ...state,
@@ -26,14 +31,16 @@ export default function(state = initialState, action) {
         };
       }
     case FETCH_COUNTRIES_BY_REGION:
-    console.log("fetch country by region case") ; 
-    console.log(action)
-      if(action.queryIsSet){
-        return{
-          ...state,countryList:action.payload.filter(country=>country.region.toLowerCase().includes(action.region.toLowerCase()))
-        }
-      }
-      else{
+      console.log("fetch country by region case");
+      console.log(action);
+      if (action.queryIsSet) {
+        return {
+          ...state,
+          countryList: action.payload.filter(country =>
+            country.region.toLowerCase().includes(action.region.toLowerCase())
+          )
+        };
+      } else {
         return {
           ...state,
           countryList: action.payload

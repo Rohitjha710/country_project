@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans");
-.heading-theme{
+.heading-theme {
   cursor: pointer;
 }
 body {
   margin: 0 !important;
   font-family: "Nunito Sans";
 }
-.container-heading{
+.container-heading {
   background-color: hsl(0, 0%, 99.5%);
 }
-html{
+html {
   background-color: hsl(0, 0%, 98%);
 }
 .container {
@@ -240,56 +240,54 @@ input:focus {
   word-wrap: break-word;
 }
 @media only screen and (max-width: 480px) {
-    .search-filter-container{
-       flex-direction: column; 
-    }
-    .search-filter{
-        height: 219px;
-    }
-    .region-options{
-        width: 53%;
-    }
-    .country-homepage {
-        width: 100%;
-        margin-bottom: 50px;
-        margin-left: 8%;
-        margin-right: 8%;
-    }
-    .flag-and-details{
-        flex-direction: column;
-    }
-    .countryFlag-detailsPage{
-        width: 100%;
-    }
-    .country-name-details{
-        width: 100%;
-    }
-    .country-detailsPage-details{
-        height: fit-content;
-    }
-     .capital{
-        margin-top: 40px;
-    }
-    .languages{
-        display: flex;
-   
-    }
-    .languages li:after{
-          content: ", ";
-          
-    }
-    .languages li:last-child:after{
-        content: "";
-    }
-    .border-country{
-        padding: 7px 13px 9px 10px;
+  .search-filter-container {
+    flex-direction: column;
+  }
+  .search-filter {
+    height: 219px;
+  }
+  .region-options {
+    width: 53%;
+  }
+  .country-homepage {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  .flag-and-details {
+    flex-direction: column;
+  }
+  .countryFlag-detailsPage {
+    width: 100%;
+  }
+  .country-name-details {
+    width: 100%;
+  }
+  .country-detailsPage-details {
+    height: fit-content;
+  }
+  .capital {
+    margin-top: 40px;
+  }
+  .languages {
+    display: flex;
+  }
+  .languages li:after {
+    content: ", ";
+  }
+  .languages li:last-child:after {
+    content: "";
+  }
+  .border-country {
+    padding: 7px 13px 9px 10px;
     height: 32px;
     font-size: 12px;
-    }
-    .border-countries{
-        padding-top: 14px;
-    }
-    .border-countries-section{
-        margin-bottom: 12px;
-    }
+  }
+  .border-countries {
+    padding-top: 14px;
+  }
+  .border-countries-section {
+    margin-bottom: 12px;
+  }
 }
