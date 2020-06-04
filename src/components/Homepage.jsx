@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {fetchCountries } from "../actions/countriesActions";
+import {fetchCountries,fetchCountriesByQuery,fetchCountriesByRegion } from "../actions/countriesActions";
 
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
 class Homepage extends Component {
-  state = { countries: [], searchQuery: "" };
   componentDidMount() {
     // if (this.state.searchQuery === "") {
     //   this.displayAllCountries();
@@ -22,27 +21,19 @@ class Homepage extends Component {
   inputQuery = e => {
     let countrySearchQuery = e.target.value;
     if (countrySearchQuery !== "") {
-      fetch("https://restcountries.eu/rest/v2/name/" + countrySearchQuery)
-        .then(countryResponse => countryResponse.json())
-        .then(countriesBySearchQuery => {
-          this.setState({
-            searchQuery: countrySearchQuery,
-            countries: countriesBySearchQuery
-          });
-        });
+      this.props.fetchCountriesByQuery(countrySearchQuery);
+    }
+    else{
+      this.props.fetchCountries();
     }
   };
   onRegionSelect = e => {
     let region = e.target.value;
     if (region !== "") {
-      fetch("https://restcountries.eu/rest/v2/region/" + region)
-        .then(countriesByRegionResponse => countriesByRegionResponse.json())
-        .then(countriesByRegion => {
-            this.setState({countries:countriesByRegion})
-        });
+      this.props.fetchCountriesByRegion(region);
     }
     else{
-        this.displayAllCountries();
+        this.props.fetchCountries();
     }
   };
   render() {
@@ -60,6 +51,6 @@ class Homepage extends Component {
 const mapStateToProps = state => ({
   countriesProps: state.countries.countryList
 });
-export default connect(mapStateToProps, { fetchCountries })(Homepage);
+export default connect(mapStateToProps, { fetchCountries,fetchCountriesByQuery,fetchCountriesByRegion })(Homepage);
 
 
