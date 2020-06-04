@@ -1,18 +1,17 @@
 import React, { Component } from "react";
+import { Flex,Text} from "@chakra-ui/core";
 class Heading extends Component {
   state = {};
   render() {
     return (
-      <div className="container-heading">
-        <div className="container heading">
-          <p className="heading-message">Where in the world?</p>
+      <Flex justify="space-between" px="5.3%" bg=" hsl(0, 0%, 99.5%)">
+          <Text  fontWeight="800" fontSize="1.2rem">Where in the world?</Text>
 
-          <p className="heading-theme" onClick={this.props.changeTheme}>
+          <Text fontWeight="600" fontSize="0.8rem" pt="0.8rem" onClick={this.props.changeTheme}>
             {" "}
             <i className="fa fa-moon-o" style={{ fontSize: 14 }}></i> Dark Mode
-          </p>
-        </div>
-      </div>
+          </Text>
+        </Flex>
     );
   }
 }

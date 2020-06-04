@@ -16,15 +16,15 @@ html {
   margin-left: 5.3%;
   margin-right: 5.3%;
 }
-.heading {
+/* .heading {
   display: flex;
   justify-content: space-between;
   background-color: hsl(0, 0%, 99.5%);
-}
-.heading-message {
+} */
+/* .heading-message {
   font-weight: 800;
   font-size: 1.2rem;
-}
+} */
 .heading-theme {
   font-weight: 600;
   font-size: 0.8rem;
@@ -36,10 +36,10 @@ html {
 
   border-top: 4px outset hsl(0, 0%, 96%);
 }
-.search-filter-container {
+/* .search-filter-container {
   display: flex;
   justify-content: space-between;
-}
+} */
 .countries {
   background-color: hsl(0, 0%, 98%);
 }
@@ -48,8 +48,8 @@ html {
 }
 .anchorTag,
 .back {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  color: inherit; 
+  text-decoration: inherit; 
 }
 .border-country-link {
   text-decoration: none;
@@ -109,17 +109,16 @@ html {
 .country-name-homepage {
   font-size: 1rem;
 }
-.search-box {
+/* .search-box {
   min-width: 28%;
   padding: 12px 20px;
   margin: 25px 0;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 2px 2px hsl(0, 0%, 95%);
-}
+} */
 .search-input {
   border-top-style: hidden;
   border-right-style: hidden;
@@ -130,10 +129,7 @@ html {
   font-size: 0.8rem;
 }
 .region-options {
-  width: 13%;
-  padding: 12px 20px;
-  margin: 25px 0;
-  display: inline-block;
+  
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -234,7 +230,6 @@ input:focus {
   display: flex;
 }
 .country-detailsPage-Languages .languages {
-  /* width: 65%; */
   padding-left: 5px;
   color: hsl(0, 0%, 30%);
   word-wrap: break-word;
