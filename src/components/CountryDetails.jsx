@@ -1,29 +1,26 @@
 import React, { Component } from "react";
 import CountryDetailsComponent from "./CountryDetailsComponent";
+import {fetchCountry} from '../actions/countriesActions';
+import { connect } from "react-redux";
 class CountryDetails extends Component {
-  state = {
-    country:
-      this.props.location.state === undefined
-        ? ""
-        : this.props.location.state.countryData
-  };
   componentDidMount() {
+    console.log("inside component did mount of countrydetails")
     const { countryName } = this.props.match.params;
-    fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
-      .then(countryDetailsResponse => countryDetailsResponse.json())
-      .then(countryDetails => {
-        this.setState({ country: countryDetails });
-      });
+    this.props.fetchCountry(countryName);
   }
   render() {
+    console.log("printing props")
+    console.log(this.props.country);
     return (
       <React.Fragment>
-        {this.state.country && (
-          <CountryDetailsComponent country={this.state.country} />
+        {Object.keys(this.props.country).length && (
+          <CountryDetailsComponent country={this.props.country} />
         )}
       </React.Fragment>
     );
   }
 }
-
-export default CountryDetails;
+const mapStateToProps = state => ({
+  country: state.countries.countryDetails
+});
+export default connect(mapStateToProps,{fetchCountry})(CountryDetails);

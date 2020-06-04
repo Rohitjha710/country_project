@@ -3,8 +3,18 @@ import {
   FETCH_COUNTRIES_BY_QUERY,
   FETCH_COUNTRIES_BY_REGION,
   UPDATE_QUERY,
-  UPDATE_REGION
+  UPDATE_REGION,
+  FETCH_COUNTRY
 } from "./types";
+export const fetchCountry = (countryName) => dispatch => {
+  console.log("fetch country called");
+  fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
+  .then(countryDetailsResponse => countryDetailsResponse.json())
+  .then(countryDetails => {
+    dispatch({ type: FETCH_COUNTRY, payload: countryDetails });
+  });
+  
+};
 export const updateRegion = region => dispatch => {
   dispatch({ type: UPDATE_REGION, payload: region });
 };

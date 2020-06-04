@@ -3,12 +3,24 @@ import {
   FETCH_COUNTRIES_BY_QUERY,
   FETCH_COUNTRIES_BY_REGION,
   UPDATE_QUERY,
-  UPDATE_REGION
+  UPDATE_REGION,
+  FETCH_COUNTRY
 } from "../actions/types";
 
-const initialState = { countryList: [], region: "", query: "" };
+const initialState = {
+  countryList: [],
+  region: "",
+  query: "",
+  countryDetails: {}
+};
 export default function(state = initialState, action) {
   switch (action.type) {
+    case FETCH_COUNTRY:
+      console.log("with data");
+      console.log(action.payload);
+      return {
+        ...state,countryDetails:action.payload
+      };
     case FETCH_COUNTRIES:
       return {
         ...state,
