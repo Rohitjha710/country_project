@@ -4,16 +4,14 @@ import {fetchCountry} from '../actions/countriesActions';
 import { connect } from "react-redux";
 class CountryDetails extends Component {
   componentDidMount() {
-    console.log("inside component did mount of countrydetails")
-    const { countryName } = this.props.match.params;
+    let { countryName } = this.props.match.params;
     this.props.fetchCountry(countryName);
   }
   render() {
-    console.log("printing props")
-    console.log(this.props.country);
+    let { countryName } = this.props.match.params;
     return (
       <React.Fragment>
-        {Object.keys(this.props.country).length && (
+        {(Object.keys(this.props.country).length !== 0) && (this.props.country.alpha3Code.toLowerCase() === countryName.toLowerCase()) && (
           <CountryDetailsComponent country={this.props.country} />
         )}
       </React.Fragment>

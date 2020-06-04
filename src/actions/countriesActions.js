@@ -7,7 +7,7 @@ import {
   FETCH_COUNTRY
 } from "./types";
 export const fetchCountry = (countryName) => dispatch => {
-  console.log("fetch country called");
+ 
   fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
   .then(countryDetailsResponse => countryDetailsResponse.json())
   .then(countryDetails => {
