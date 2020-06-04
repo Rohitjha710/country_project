@@ -4,7 +4,7 @@ import {
   FETCH_COUNTRIES_BY_REGION
 } from "../actions/types";
 
-const initialState = { countryList: [], item: {} };
+const initialState = { countryList: [] };
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_COUNTRIES:
