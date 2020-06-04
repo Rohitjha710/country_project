@@ -1,10 +1,10 @@
-import { FETCH_POST, NEW_POST } from "../actions/types";
+import { FETCH_COUNTRIES, NEW_POST } from "../actions/types";
 
 const initialState = { items:[],
 item:{} };
 export default function(state=initialState,action){
     switch(action.type){
-        case FETCH_POST:
+        case FETCH_COUNTRIES:
             return{
                 ...state,items:action.payload
             }

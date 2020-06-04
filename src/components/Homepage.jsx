@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPost } from "../actions/postActions";
+import {fetchCountries } from "../actions/countriesActions";
 
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
@@ -10,7 +10,7 @@ class Homepage extends Component {
     // if (this.state.searchQuery === "") {
     //   this.displayAllCountries();
     // }
-    this.props.fetchPost();
+    this.props.fetchCountries();
   }
   displayAllCountries = () => {
     fetch("https://restcountries.eu/rest/v2/all")
@@ -61,6 +61,6 @@ const mapStateToProps = state => ({
   posts: state.posts.items,
   newPost: state.posts.item
 });
-export default connect(mapStateToProps, { fetchPost })(Homepage);
+export default connect(mapStateToProps, { fetchCountries })(Homepage);
 
 
