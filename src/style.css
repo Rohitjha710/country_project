@@ -134,18 +134,16 @@ input:focus {
   padding-top: 3rem;
   border-top: 4px outset hsl(0, 0%, 96%);
 } */
-.back-button {
-  display: inline-block;
+/* .back-button {
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 2px 2px hsl(0, 0%, 95%);
 
   width: fit-content;
   padding: 11px 30px 10px 21px;
   font-size: 14px;
-}
+} */
 .back-icon {
   margin-right: 5px;
 }
