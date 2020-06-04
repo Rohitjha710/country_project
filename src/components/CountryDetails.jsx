@@ -8,19 +8,19 @@ class CountryDetails extends Component {
         : this.props.location.state.countryData
   };
   componentDidMount() {
-    // if (this.props.location.state === undefined) {
-      const { countryName } = this.props.match.params;
-      fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
-        .then(countryDetailsResponse => countryDetailsResponse.json())
-        .then(countryDetails => {
-          this.setState({ country: countryDetails });
-        });
-    // }
+    const { countryName } = this.props.match.params;
+    fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
+      .then(countryDetailsResponse => countryDetailsResponse.json())
+      .then(countryDetails => {
+        this.setState({ country: countryDetails });
+      });
   }
   render() {
     return (
       <React.Fragment>
-        { this.state.country && <CountryDetailsComponent country={this.state.country}/>}
+        {this.state.country && (
+          <CountryDetailsComponent country={this.state.country} />
+        )}
       </React.Fragment>
     );
   }

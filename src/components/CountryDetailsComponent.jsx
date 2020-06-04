@@ -1,46 +1,45 @@
 import React, { Component } from "react";
-
+import { Flex,Text,Box} from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 class Country extends Component {
-  state = {};
   render() {
     return (
-      <div className="country-details-main-section">
-        <div className="container">
+      <Box className="country-details-main-section" pt="3rem" borderTop="4px outset hsl(0, 0%, 96%)">
+        <Box className="container">
           {" "}
           <Link className="back" to={{ pathname: "/" }}>
-            <div className="back-button">
+            <Box className="back-button">
               {" "}
               <i className=" back-icon fa fa-long-arrow-left"></i> Back
-            </div>
+            </Box>
           </Link>
-        </div>
-        <div className="container flag-and-details">
+        </Box>
+        <Box className="container flag-and-details">
           <img
             className="countryFlag-detailsPage"
             src={this.props.country.flag}
             alt="Country"
           />
-          <div className="country-name-details">
+          <Box className="country-name-details">
             <p className="countryDetails-countryName">{this.props.country.name}</p>
-            <div className="country-detailsPage-details">
-              <div className="country-detailsPage-detailsTitle">Native Name :<p style={{display:'inline'}}>{this.props.country.nativeName}</p></div>
-              <div className="country-detailsPage-detailsTitle">Population:<p style={{display:'inline'}}>{this.props.country.population}</p></div>
-              <div className="country-detailsPage-detailsTitle">Region:<p style={{display:'inline'}}>{this.props.country.region}</p></div>
-              <div className="country-detailsPage-detailsTitle">Sub Region:<p style={{display:'inline'}}>{this.props.country.subregion}</p></div>
-              <div className="country-detailsPage-detailsTitle capital"> Capital:<p style={{display:'inline'}}>{this.props.country.capital}</p></div>
-              <div className="country-detailsPage-detailsTitle">Top Level Domain:<p style={{display:'inline'}}>{this.props.country.topLevelDomain[0]}</p></div>
-              <div className="country-detailsPage-detailsTitle">Currencies:<p style={{display:'inline'}}>{this.props.country.currencies[0].name}</p></div>
-              <div className="country-detailsPage-Languages"><div className="country-detailsPage-detailsTitle">
+            <Box className="country-detailsPage-details">
+              <Box className="country-detailsPage-detailsTitle">Native Name :<p style={{display:'inline'}}>{this.props.country.nativeName}</p></Box>
+              <Box className="country-detailsPage-detailsTitle">Population:<p style={{display:'inline'}}>{this.props.country.population}</p></Box>
+              <Box className="country-detailsPage-detailsTitle">Region:<p style={{display:'inline'}}>{this.props.country.region}</p></Box>
+              <Box className="country-detailsPage-detailsTitle">Sub Region:<p style={{display:'inline'}}>{this.props.country.subregion}</p></Box>
+              <Box className="country-detailsPage-detailsTitle capital"> Capital:<p style={{display:'inline'}}>{this.props.country.capital}</p></Box>
+              <Box className="country-detailsPage-detailsTitle">Top Level Domain:<p style={{display:'inline'}}>{this.props.country.topLevelDomain[0]}</p></Box>
+              <Box className="country-detailsPage-detailsTitle">Currencies:<p style={{display:'inline'}}>{this.props.country.currencies[0].name}</p></Box>
+              <Box className="country-detailsPage-Languages"><Box className="country-detailsPage-detailsTitle">
                 Languages:
-                </div>  <ul className="languages">
+                </Box>  <ul className="languages">
                   {this.props.country.languages.map(language => (
                     <li key={language.name}>{language.name}</li>
                   ))}
                 </ul>
-                </div>
-            </div>
-            <div className="border-countries-section">
+                </Box>
+            </Box>
+            <Box className="border-countries-section">
               <p>Border Countries</p>
               <ul className="border-countries">
                 {this.props.country.borders.map(borderCountry => (
@@ -54,10 +53,10 @@ class Country extends Component {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     );
   }
 }

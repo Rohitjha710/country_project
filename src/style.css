@@ -130,12 +130,10 @@ html {
 input:focus {
   outline: none;
 }
-.country-details-main-section {
-  background-color: hsl(0, 0%, 98%);
+/* .country-details-main-section {
   padding-top: 3rem;
-
   border-top: 4px outset hsl(0, 0%, 96%);
-}
+} */
 .back-button {
   display: inline-block;
   border: 1px solid #ccc;
