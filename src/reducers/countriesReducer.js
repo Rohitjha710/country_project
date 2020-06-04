@@ -1,19 +1,14 @@
-import { FETCH_COUNTRIES, NEW_POST } from "../actions/types";
+import { FETCH_COUNTRIES} from "../actions/types";
 
-const initialState = { items:[],
+const initialState = { countryList:[],
 item:{} };
 export default function(state=initialState,action){
     switch(action.type){
         case FETCH_COUNTRIES:
             return{
-                ...state,items:action.payload
+                ...state,countryList:action.payload
             }
-            case NEW_POST :
-                let state1= {...state};
-                state1.items.unshift(action.payload)
-                return{
-                    ...state1,item:action.payload
-                }
+          
     default : return state
     }
 }

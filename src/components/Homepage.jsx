@@ -52,14 +52,13 @@ class Homepage extends Component {
           inputQuery={this.inputQuery}
           onRegionSelect={this.onRegionSelect}
         />
-        <Countries countries={this.props.posts} />
+        <Countries countries={this.props.countriesProps} />
       </React.Fragment>
     );
   }
 }
 const mapStateToProps = state => ({
-  posts: state.posts.items,
-  newPost: state.posts.item
+  countriesProps: state.countries.countryList
 });
 export default connect(mapStateToProps, { fetchCountries })(Homepage);
 
