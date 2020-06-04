@@ -16,7 +16,7 @@ class SearchFilter extends Component {
           </div>
 
           <select className="region-options" onChange={this.props.onRegionSelect}>
-            <option value="" selected>Filter By Region</option>
+            <option value="" defaultValue>Filter By Region</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
