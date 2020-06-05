@@ -6,7 +6,7 @@ class Country extends Component {
     const { country } = this.props;
     return (
       <Box
-        w={["100%", "45%", "30%", "20.7%"]}
+        w={["90%", "45%", "30%", "20.7%"]}
         bg="hsl(0,0%,100%)"
         shadow="4px 4px hsl(0, 0%, 95%)"
         mb="100px"
