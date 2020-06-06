@@ -7,7 +7,7 @@ class Countries extends Component {
   render() {
     return (
       <Flex mx={["5.3%","2.3%","3.3%","2.3%"]} wrap="wrap" justify="space-evenly"  >
-        {this.props.countries.map(country => (
+        { this.props.countries.map(country => (
           <Country key={country.name} country={country} />
         ))}
       </Flex>

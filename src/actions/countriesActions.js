@@ -6,14 +6,12 @@ import {
   UPDATE_REGION,
   FETCH_COUNTRY
 } from "./types";
-export const fetchCountry = (countryName) => dispatch => {
- 
+export const fetchCountry = countryName => dispatch => {
   fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
-  .then(countryDetailsResponse => countryDetailsResponse.json())
-  .then(countryDetails => {
-    dispatch({ type: FETCH_COUNTRY, payload: countryDetails });
-  });
-  
+    .then(countryDetailsResponse => countryDetailsResponse.json())
+    .then(countryDetails => {
+      dispatch({ type: FETCH_COUNTRY, payload: countryDetails });
+    });
 };
 export const updateRegion = region => dispatch => {
   dispatch({ type: UPDATE_REGION, payload: region });
@@ -34,7 +32,11 @@ export const fetchCountriesByQuery = (searchQuery, region) => dispatch => {
     fetch("https://restcountries.eu/rest/v2/name/" + searchQuery)
       .then(res => res.json())
       .then(countries => {
-        dispatch({ type: FETCH_COUNTRIES_BY_QUERY, payload: countries });
+        if (countries.status === 404) {
+          dispatch({ type: FETCH_COUNTRIES_BY_QUERY, payload: [] });
+        } else {
+          dispatch({ type: FETCH_COUNTRIES_BY_QUERY, payload: countries });
+        }
       });
   } else {
     fetch("https://restcountries.eu/rest/v2/region/" + region)
@@ -64,12 +66,22 @@ export const fetchCountriesByRegion = (region, searchQuery) => dispatch => {
     fetch("https://restcountries.eu/rest/v2/name/" + searchQuery)
       .then(res => res.json())
       .then(countries => {
-        dispatch({
-          type: FETCH_COUNTRIES_BY_REGION,
-          payload: countries,
-          region: region,
-          queryIsSet: true
-        });
+        if (countries.status === 404){
+          dispatch({
+            type: FETCH_COUNTRIES_BY_REGION,
+            payload: [],
+            region: region,
+            queryIsSet: true
+          });
+        }
+        else{
+          dispatch({
+            type: FETCH_COUNTRIES_BY_REGION,
+            payload: countries,
+            region: region,
+            queryIsSet: true
+          });
+        }
       });
   }
 };

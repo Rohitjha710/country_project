@@ -7,7 +7,7 @@ import {
   updateQuery,
   updateRegion
 } from "../actions/countriesActions";
-
+import { debounce } from "lodash";
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
 class Homepage extends Component {
@@ -15,21 +15,27 @@ class Homepage extends Component {
     this.props.fetchCountries();
   }
   inputQuery = e => {
-    let countrySearchQuery = e.target.value;
+    e.persist();
+    if (!this.debounced) {
+      this.debounced = debounce(() => {
+        let countrySearchQuery = e.target.value;
 
-    if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
-      this.props.updateQuery(countrySearchQuery);
-      this.props.fetchCountriesByQuery(
-        countrySearchQuery,
-        this.props.regionProps
-      );
-    } else if (this.props.regionProps !== "") {
-      this.props.updateQuery("");
-      this.props.fetchCountriesByRegion(this.props.regionProps);
-    } else {
-      this.props.updateQuery("");
-      this.props.fetchCountries();
+        if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
+          this.props.updateQuery(countrySearchQuery);
+          this.props.fetchCountriesByQuery(
+            countrySearchQuery,
+            this.props.regionProps
+          );
+        } else if (this.props.regionProps !== "") {
+          this.props.updateQuery("");
+          this.props.fetchCountriesByRegion(this.props.regionProps);
+        } else {
+          this.props.updateQuery("");
+          this.props.fetchCountries();
+        }
+      }, 300);
     }
+    this.debounced();
   };
   onRegionSelect = e => {
     let region = e.target.value;
@@ -54,7 +60,9 @@ class Homepage extends Component {
           inputQuery={this.inputQuery}
           onRegionSelect={this.onRegionSelect}
         />
-        <Countries countries={this.props.countriesProps} />
+        {this.props.countriesProps.length !== 0 && (
+          <Countries countries={this.props.countriesProps} />
+        )}
       </React.Fragment>
     );
   }

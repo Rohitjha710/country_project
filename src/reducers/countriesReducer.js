@@ -43,13 +43,11 @@ export default function(state = initialState, action) {
         };
       }
     case FETCH_COUNTRIES_BY_REGION:
-      console.log("fetch country by region case");
-      console.log(action);
       if (action.queryIsSet) {
         return {
           ...state,
-          countryList: action.payload.filter(country =>
-            country.region.toLowerCase().includes(action.region.toLowerCase())
+          countryList: ((action.payload.length !== 0) && (action.payload.filter(country =>
+            country.region.toLowerCase().includes(action.region.toLowerCase())))
           )
         };
       } else {
