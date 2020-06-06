@@ -10,7 +10,9 @@ export const fetchCountry = countryName => dispatch => {
   fetch("https://restcountries.eu/rest/v2/alpha/" + countryName)
     .then(countryDetailsResponse => countryDetailsResponse.json())
     .then(countryDetails => {
-      dispatch({ type: FETCH_COUNTRY, payload: countryDetails });
+      if(countryDetails.status === 404){dispatch({ type: FETCH_COUNTRY, payload: [] })}
+      else{dispatch({ type: FETCH_COUNTRY, payload: countryDetails });}
+      
     });
 };
 export const updateRegion = region => dispatch => {
