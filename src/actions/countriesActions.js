@@ -27,9 +27,9 @@ export const fetchCountries = () => dispatch => {
     .then(countries => dispatch({ type: FETCH_COUNTRIES, payload: countries }));
 };
 export const fetchCountriesByQuery = (searchQuery, region) => dispatch => {
-  console.log(
-    `fetch-country-by-query query = +${searchQuery}+ region = +${region}+`
-  );
+  // console.log(
+  //   `fetch-country-by-query query = +${searchQuery}+ region = +${region}+`
+  // );
   if (region === "" || region === undefined) {
     fetch("https://restcountries.eu/rest/v2/name/" + searchQuery)
       .then(res => res.json())
@@ -54,17 +54,20 @@ export const fetchCountriesByQuery = (searchQuery, region) => dispatch => {
   }
 };
 export const fetchCountriesByRegion = (region, searchQuery) => dispatch => {
-  console.log(
-    `fetch-country-by-region query = +${searchQuery}+ region = +${region}+`
-  );
+  // console.log(
+  //   `fetch-country-by-region query = +${searchQuery}+ region = +${region}+`
+  // );
   if (searchQuery === "" || searchQuery === undefined) {
     fetch("https://restcountries.eu/rest/v2/region/" + region)
       .then(res => res.json())
       .then(countries => {
-        dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: countries });
-      });
+        if(countries.status ===404){
+          dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: []}) 
+        }
+        else{dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: countries });
+      }});
   } else {
-    console.log("this is what we get" + searchQuery);
+    // console.log("this is what we get" + searchQuery);
     fetch("https://restcountries.eu/rest/v2/name/" + searchQuery)
       .then(res => res.json())
       .then(countries => {

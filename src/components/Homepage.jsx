@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect,useCallback } from "react";
 import { connect } from "react-redux";
 import {
   fetchCountries,
@@ -10,62 +10,68 @@ import {
 import { debounce } from "lodash";
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
-class Homepage extends Component {
-  componentDidMount() {
-    this.props.fetchCountries();
-  }
-  inputQuery = e => {
-    e.persist();
-    if (!this.debounced) {
-      this.debounced = debounce(() => {
-        let countrySearchQuery = e.target.value;
 
-        if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
-          this.props.updateQuery(countrySearchQuery);
-          this.props.fetchCountriesByQuery(
-            countrySearchQuery,
-            this.props.regionProps
-          );
-        } else if (this.props.regionProps !== "") {
-          this.props.updateQuery("");
-          this.props.fetchCountriesByRegion(this.props.regionProps);
-        } else {
-          this.props.updateQuery("");
-          this.props.fetchCountries();
-        }
-      }, 300);
-    }
-    this.debounced();
-  };
-  onRegionSelect = e => {
-    let region = e.target.value;
-    if (region !== "" && region !== undefined) {
-      this.props.updateRegion(region);
-      this.props.fetchCountriesByRegion(region, this.props.queryProps);
-    } else if (
-      this.props.queryProps !== "" &&
-      this.props.queryProps !== undefined
-    ) {
-      this.props.updateRegion("");
-      this.props.fetchCountriesByQuery(this.props.queryProps);
-    } else {
-      this.props.updateRegion("");
-      this.props.fetchCountries();
-    }
-  };
-  render() {
-    return (
-      <React.Fragment>
-        <SearchFilter
-          inputQuery={this.inputQuery}
-          onRegionSelect={this.onRegionSelect}
-        />
-        {this.props.countriesProps.length !== 0 && (
-          <Countries countries={this.props.countriesProps} />
-        )}
-      </React.Fragment>
-    );
+import {Box,useColorMode} from "@chakra-ui/core";
+const Homepage = (props)=> {
+  
+  const { colorMode } = useColorMode();
+
+  const bgColor = {"light" : "hsl(0, 0%, 98%)" ,"dark":"hsl(207, 26%, 17%)"}
+  useEffect(() => {
+    props.fetchCountries();
+  }, []);
+ const debounceFunction = useCallback(debounce((countrySearchQuery,regionSelected)=>{
+  
+  if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
+    props.updateQuery(countrySearchQuery);
+    props.fetchCountriesByQuery(countrySearchQuery,regionSelected);
+  } else if (regionSelected !== "" && regionSelected !== undefined) {
+    props.updateQuery("");
+    props.fetchCountriesByRegion(regionSelected);
+  } else {
+    
+    props.updateQuery("");
+    props.fetchCountries();
   }
+
+},300)
+,[]);
+const inputQuery = (e)=> {
+  e.persist();
+
+  let countrySearchQuery = e.target.value;
+  
+  debounceFunction(countrySearchQuery,props.regionProps);
+  
+}
+
+const onRegionSelect =(e) => {
+  let region = e.target.value;
+  if (region !== "" && region !== undefined) {
+    props.updateRegion(region);
+    props.fetchCountriesByRegion(region, props.queryProps);
+  } else if (
+   props.queryProps !== "" &&
+   props.queryProps !== undefined
+  ) {
+   props.updateRegion("");
+   props.fetchCountriesByQuery(props.queryProps);
+  } else {
+   props.updateRegion("");
+   props.fetchCountries();
+  }
+}
+  return (
+    <Box bg={bgColor[colorMode]}>
+      <SearchFilter
+        inputQuery={e => inputQuery(e)}
+        onRegionSelect={e => onRegionSelect(e)}
+      />
+      {props.countriesProps.length !== 0 && (
+        <Countries countries={props.countriesProps} />
+      )}
+    </Box>
+  );
 }
 const mapStateToProps = state => ({
   countriesProps: state.countries.countryList,
