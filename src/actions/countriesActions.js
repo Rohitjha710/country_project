@@ -61,8 +61,11 @@ export const fetchCountriesByRegion = (region, searchQuery) => dispatch => {
     fetch("https://restcountries.eu/rest/v2/region/" + region)
       .then(res => res.json())
       .then(countries => {
-        dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: countries });
-      });
+        if(countries.status ===404){
+          dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: []}) 
+        }
+        else{dispatch({ type: FETCH_COUNTRIES_BY_REGION, payload: countries });
+      }});
   } else {
     // console.log("this is what we get" + searchQuery);
     fetch("https://restcountries.eu/rest/v2/name/" + searchQuery)

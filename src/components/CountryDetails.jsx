@@ -7,7 +7,7 @@ function CountryDetails(props) {
   let { countryName } = props.match.params;
     props.fetchCountry(countryName);
   
- })
+ },[])
     let { countryName } = props.match.params;
     return (
       <React.Fragment>

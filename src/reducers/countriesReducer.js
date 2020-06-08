@@ -16,8 +16,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_COUNTRY:
-      console.log("with data");
-      console.log(action.payload);
       return {
         ...state,countryDetails:action.payload
       };
