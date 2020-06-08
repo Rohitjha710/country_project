@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Image, Text } from "@chakra-ui/core";
+import { Box, Image, Text,useColorMode } from "@chakra-ui/core";
+
 function Country(props) {
-    const { country } = props;
+  const { colorMode } = useColorMode();
+const BOXbg={"ligh":"hsl(0,0%,100%)","dark":"hsl(209, 23%, 22%)"}
+const BOXShadow={"ligh":"4px 4px hsl(0, 0%, 95%)","dark":"4px 4px hsl(209, 23%, 26%)"};
+const boxColorName = {"light":"black","dark":"hsl(0,0%,100%)"}
+const boxColorTitle = {"light":"hsl(200, 15%, 8%)","dark":"hsl(0,0%,100%)"}
+const boxColorText = {"light":"hsl(0, 0%, 40%)","dark":"hsl(0,0%,80%)"}
+
+const { country } = props;
     return (
       <Box
         w={["90%", "45%", "30%", "20.7%"]}
-        bg="hsl(0,0%,100%)"
-        shadow="4px 4px hsl(0, 0%, 95%)"
+        bg={BOXbg[colorMode]}
+        shadow={BOXShadow[colorMode]}
         mb="100px"
         rounded="12px"
         pb="1rem"
@@ -33,11 +41,13 @@ function Country(props) {
             ml="1.5rem"
             wordBreak="break-word"
             fontSize="1rem"
+            
+            color={boxColorName[colorMode]}
           >
             {country.name}
           </Text>
           <Box
-            color="hsl(200, 15%, 8%)"
+            color={boxColorTitle[colorMode]}
             mb="4px"
             fontSize="0.8rem"
             fontWeight="300"
@@ -46,7 +56,7 @@ function Country(props) {
           >
             Population:
             <Text
-              color="hsl(0, 0%, 40%)"
+              color={boxColorText[colorMode]}
               ml="2px"
               style={{ display: "inline" }}
             >
@@ -54,7 +64,7 @@ function Country(props) {
             </Text>
           </Box>
           <Box
-            color="hsl(200, 15%, 8%)"
+            color={boxColorTitle[colorMode]}
             mb="4px"
             fontSize="0.8rem"
             fontWeight="300"
@@ -63,7 +73,7 @@ function Country(props) {
           >
             Region:{" "}
             <Text
-              color="hsl(0, 0%, 40%)"
+              color={boxColorText[colorMode]}
               ml="2px"
               style={{ display: "inline" }}
             >
@@ -72,7 +82,7 @@ function Country(props) {
             </Text>
           </Box>
           <Box
-            color="hsl(200, 15%, 8%)"
+            color={boxColorTitle[colorMode]}
             mb="4px"
             fontSize="0.8rem"
             fontWeight="300"
@@ -81,7 +91,7 @@ function Country(props) {
           >
             Capital:{" "}
             <Text
-              color="hsl(0, 0%, 40%)"
+              color={boxColorText[colorMode]}
               ml="2px"
               style={{ display: "inline" }}
             >
