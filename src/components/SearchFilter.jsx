@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Input,
   Select,
@@ -6,8 +6,8 @@ import {
   InputGroup,
   InputLeftElement
 } from "@chakra-ui/core";
-class SearchFilter extends Component {
-  render() {
+function SearchFilter(props) {
+  
     return (
       <Flex
         bg="hsl(0, 0%, 98%)"
@@ -25,7 +25,7 @@ class SearchFilter extends Component {
             bg="hsl(0,0%,100%)"
             variant="filled"
             placeholder="Search For a Country.."
-            onChange={this.props.inputQuery}
+            onChange={props.inputQuery}
             fontSize="0.8rem"
           />
         </InputGroup>
@@ -41,7 +41,7 @@ class SearchFilter extends Component {
           my="22px"
           pr="2rem"
           fontSize={["0.7rem", "0.8rem"]}
-          onChange={this.props.onRegionSelect}
+          onChange={props.onRegionSelect}
         >
           <option value="" defaultValue>
             Filter By Region
@@ -55,6 +55,6 @@ class SearchFilter extends Component {
       </Flex>
     );
   }
-}
+
 
 export default SearchFilter;

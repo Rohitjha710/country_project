@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Flex, Text, Box, Image, List, ListItem } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-class Country extends Component {
-  render() {
+function Country(props){
+ 
     return (
       <Box
         className="country-details-main-section"
@@ -39,7 +39,7 @@ class Country extends Component {
         >
           <Image
             w={["100%", "43%"]}
-            src={this.props.country.flag}
+            src={props.country.flag}
             alt="Country"
           />
           <Box className="country-name-details" w={["100%", "45%"]}>
@@ -50,7 +50,7 @@ class Country extends Component {
               fontSize="1.3rem"
               fontWeight="800"
             >
-              {this.props.country.name}
+              {props.country.name}
             </Text>
             <Flex
               className="country-detailsPage-details"
@@ -74,7 +74,7 @@ class Country extends Component {
                   w="45%"
                   wordBreak="break-all"
                 >
-                  {this.props.country.nativeName}
+                  {props.country.nativeName}
                 </Text>
               </Box>
               <Box
@@ -91,7 +91,7 @@ class Country extends Component {
                   wordBreak="break-all"
                   style={{ display: "inline" }}
                 >
-                  {this.props.country.population}
+                  {props.country.population}
                 </Text>
               </Box>
               <Box
@@ -108,7 +108,7 @@ class Country extends Component {
                   w="45%"
                   wordBreak="break-all"
                 >
-                  {this.props.country.region}
+                  {props.country.region}
                 </Text>
               </Box>
               <Box
@@ -125,7 +125,7 @@ class Country extends Component {
                   wordBreak="break-all"
                   style={{ display: "inline" }}
                 >
-                  {this.props.country.subregion}
+                  {props.country.subregion}
                 </Text>
               </Box>
               <Box
@@ -143,7 +143,7 @@ class Country extends Component {
                   wordBreak="break-all"
                   style={{ display: "inline" }}
                 >
-                  {this.props.country.capital}
+                  {props.country.capital}
                 </Text>
               </Box>
               <Box
@@ -160,7 +160,7 @@ class Country extends Component {
                   wordBreak="break-all"
                   style={{ display: "inline" }}
                 >
-                  {this.props.country.topLevelDomain[0]}
+                  {props.country.topLevelDomain[0]}
                 </Text>
               </Box>
               <Box
@@ -177,7 +177,7 @@ class Country extends Component {
                   wordBreak="break-all"
                   style={{ display: "inline" }}
                 >
-                  {this.props.country.currencies[0].name}
+                  {props.country.currencies[0].name}
                 </Text>
               </Box>
               <Flex className="country-detailsPage-Languages">
@@ -190,7 +190,7 @@ class Country extends Component {
                   Languages:
                 </Box>{" "}
                 <ul className="languages">
-                  {this.props.country.languages.map(language => (
+                  {props.country.languages.map(language => (
                     <li
                       mr="0px"
                       w="45%"
@@ -216,7 +216,7 @@ class Country extends Component {
                 alignItems="space-evenly"
                 pb="15px"
               >
-                {this.props.country.borders.map(borderCountry => (
+                {props.country.borders.map(borderCountry => (
                   <ListItem
                   ml={["5px","5px","5px"]}
                   mb="5px"
@@ -244,7 +244,7 @@ class Country extends Component {
         </Flex>
       </Box>
     );
-  }
+  
 }
 
 export default Country;
