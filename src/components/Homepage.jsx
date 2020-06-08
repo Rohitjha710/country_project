@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   fetchCountries,
@@ -10,62 +10,60 @@ import {
 import { debounce } from "lodash";
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
-class Homepage extends Component {
-  componentDidMount() {
-    this.props.fetchCountries();
-  }
-  inputQuery = e => {
-    e.persist();
-    if (!this.debounced) {
-      this.debounced = debounce(() => {
-        let countrySearchQuery = e.target.value;
+function inputQuery(e, props) {
+  e.persist();
+  // let debounced;
+//   if (debounced) {
+//  debounced = debounce(() => {
+  let countrySearchQuery = e.target.value;
 
-        if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
-          this.props.updateQuery(countrySearchQuery);
-          this.props.fetchCountriesByQuery(
-            countrySearchQuery,
-            this.props.regionProps
-          );
-        } else if (this.props.regionProps !== "") {
-          this.props.updateQuery("");
-          this.props.fetchCountriesByRegion(this.props.regionProps);
-        } else {
-          this.props.updateQuery("");
-          this.props.fetchCountries();
-        }
-      }, 300);
-    }
-    this.debounced();
-  };
-  onRegionSelect = e => {
-    let region = e.target.value;
-    if (region !== "" && region !== undefined) {
-      this.props.updateRegion(region);
-      this.props.fetchCountriesByRegion(region, this.props.queryProps);
-    } else if (
-      this.props.queryProps !== "" &&
-      this.props.queryProps !== undefined
-    ) {
-      this.props.updateRegion("");
-      this.props.fetchCountriesByQuery(this.props.queryProps);
-    } else {
-      this.props.updateRegion("");
-      this.props.fetchCountries();
-    }
-  };
-  render() {
-    return (
-      <React.Fragment>
-        <SearchFilter
-          inputQuery={this.inputQuery}
-          onRegionSelect={this.onRegionSelect}
-        />
-        {this.props.countriesProps.length !== 0 && (
-          <Countries countries={this.props.countriesProps} />
-        )}
-      </React.Fragment>
-    );
+  if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
+    props.updateQuery(countrySearchQuery);
+    props.fetchCountriesByQuery(countrySearchQuery, props.regionProps);
+  } else if (props.regionProps !== "") {
+    props.updateQuery("");
+    props.fetchCountriesByRegion(props.regionProps);
+  } else {
+    props.updateQuery("");
+    props.fetchCountries();
   }
+  // }, 300);
+  // }
+  // debounced();
+}
+function onRegionSelect(e, props) {
+  let region = e.target.value;
+  if (region !== "" && region !== undefined) {
+    props.updateRegion(region);
+    props.fetchCountriesByRegion(region, props.queryProps);
+  } else if (
+   props.queryProps !== "" &&
+   props.queryProps !== undefined
+  ) {
+   props.updateRegion("");
+   props.fetchCountriesByQuery(props.queryProps);
+  } else {
+   props.updateRegion("");
+   props.fetchCountries();
+  }
+}
+
+function Homepage(props) {
+  useEffect(() => {
+    console.log("calledd")
+    props.fetchCountries();
+  }, []);
+  return (
+    <div>
+      <SearchFilter
+        inputQuery={e => inputQuery(e, props)}
+        onRegionSelect={e => onRegionSelect(e, props)}
+      />
+      {props.countriesProps.length !== 0 && (
+        <Countries countries={props.countriesProps} />
+      )}
+    </div>
+  );
 }
 const mapStateToProps = state => ({
   countriesProps: state.countries.countryList,
