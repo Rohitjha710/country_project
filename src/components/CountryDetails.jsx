@@ -15,7 +15,7 @@ function CountryDetails(props) {
         {Object.keys(props.country).length !== 0 &&
           props.country.alpha3Code.toLowerCase() ===
             countryName.toLowerCase() && (
-            <CountryDetailsComponent country={props.country} />
+            <CountryDetailsComponent  country={props.country} />
           )}
       </React.Fragment>
     );

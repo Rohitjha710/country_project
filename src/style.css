@@ -52,6 +52,6 @@ html {
 
 .country-detailsPage-Languages .languages {
   padding-left: 5px;
-  color: hsl(0, 0%, 30%);
+  /* color: hsl(0, 0%, 30%); */
   word-wrap: break-word;
 }
