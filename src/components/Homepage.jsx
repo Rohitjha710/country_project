@@ -7,29 +7,27 @@ import {
   updateQuery,
   updateRegion
 } from "../actions/countriesActions";
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 import SearchFilter from "./SearchFilter";
 import Countries from "./Countries";
+ 
 function inputQuery(e, props) {
   e.persist();
-  // let debounced;
-//   if (debounced) {
-//  debounced = debounce(() => {
-  let countrySearchQuery = e.target.value;
-
-  if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
-    props.updateQuery(countrySearchQuery);
-    props.fetchCountriesByQuery(countrySearchQuery, props.regionProps);
-  } else if (props.regionProps !== "") {
-    props.updateQuery("");
-    props.fetchCountriesByRegion(props.regionProps);
-  } else {
-    props.updateQuery("");
-    props.fetchCountries();
-  }
-  // }, 300);
-  // }
-  // debounced();
+ 
+    let countrySearchQuery = e.target.value;
+  
+    if (countrySearchQuery !== "" && countrySearchQuery !== undefined) {
+      props.updateQuery(countrySearchQuery);
+      props.fetchCountriesByQuery(countrySearchQuery, props.regionProps);
+    } else if (props.regionProps !== "") {
+      props.updateQuery("");
+      props.fetchCountriesByRegion(props.regionProps);
+    } else {
+      props.updateQuery("");
+      props.fetchCountries();
+    }
+ 
+  
 }
 function onRegionSelect(e, props) {
   let region = e.target.value;

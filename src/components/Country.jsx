@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Image, Text } from "@chakra-ui/core";
-class Country extends Component {
-  render() {
-    const { country } = this.props;
+function Country(props) {
+    const { country } = props;
     return (
       <Box
         w={["90%", "45%", "30%", "20.7%"]}
@@ -93,6 +92,6 @@ class Country extends Component {
       </Box>
     );
   }
-}
+
 
 export default Country;
