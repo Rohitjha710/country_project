@@ -7,6 +7,7 @@ function CountryDetails(props) {
   let { countryName } = props.match.params;
     props.fetchCountry(countryName);
   
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  },[])
     let { countryName } = props.match.params;
     return (
