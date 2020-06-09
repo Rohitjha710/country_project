@@ -4,8 +4,8 @@ import { Box, Image, Text,useColorMode } from "@chakra-ui/core";
 
 function Country(props) {
   const { colorMode } = useColorMode();
-const BOXbg={"ligh":"hsl(0,0%,100%)","dark":"hsl(209, 23%, 22%)"}
-const BOXShadow={"ligh":"4px 4px hsl(0, 0%, 95%)","dark":"4px 4px hsl(209, 23%, 26%)"};
+const BOXbg={"light":"hsl(0,0%,100%)","dark":"hsl(209, 23%, 22%)"}
+const BOXShadow={"light":"4px 4px hsl(0, 0%, 95%)","dark":"4px 4px hsl(209, 23%, 26%)"};
 const boxColorName = {"light":"black","dark":"hsl(0,0%,100%)"}
 const boxColorTitle = {"light":"hsl(200, 15%, 8%)","dark":"hsl(0,0%,100%)"}
 const boxColorText = {"light":"hsl(0, 0%, 40%)","dark":"hsl(0,0%,80%)"}
